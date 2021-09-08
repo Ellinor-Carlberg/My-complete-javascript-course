@@ -87,7 +87,7 @@ function fruitProcesor(apples, oranges) {
     fruitProcesor(2, 3)
     
      */
-
+/* 
 function describeCountry(country, population, capitalCity) {
 return `${country} have the population of ${population} millions and the capital is ${capitalCity}`
 }
@@ -143,3 +143,44 @@ const tyskland = describePopulation('Berlin', 83)
 const frankrike = describePopulation('Paris', 67)
 
 console.log(finland, tyskland, frankrike)
+
+
+
+functionName('tjooho')
+
+
+function functionName(msg) {
+    return console.log('declaration', msg)
+}
+
+
+
+const fname = function(msg) {
+return console.log('expression', msg)
+}
+
+fname('tjingeling')
+
+
+const fnameA = msg => console.log('arrow', msg)
+
+fnameA('tjopp')
+
+ */
+
+
+const calcAverage = (s1, s2, s3) => (s1 + s2 + s3) / 3
+
+
+const averageKoalas = calcAverage(10, 10, 10)
+const averageDolfins = calcAverage(20, 20, 20)
+
+console.log(averageKoalas, averageDolfins)
+
+const checkWinner = function(avgDolfins, avgKoalas){
+if(avgDolfins >= avgKoalas * 2) return `dolfins wins ${avgDolfins} vs ${avgKoalas}`;
+else if(avgKoalas >= avgDolfins * 2) return `koalas wins ${avgKoalas} vs ${avgDolfins}`;
+else return `its a tie ${avgDolfins} vs ${avgKoalas}`;
+}
+
+console.log(checkWinner(averageDolfins, averageKoalas))
