@@ -169,7 +169,7 @@ fnameA('tjopp')
  */
 
 
-const calcAverage = (s1, s2, s3) => (s1 + s2 + s3) / 3
+/* const calcAverage = (s1, s2, s3) => (s1 + s2 + s3) / 3
 
 
 const averageKoalas = calcAverage(10, 10, 10)
@@ -183,4 +183,33 @@ else if(avgKoalas >= avgDolfins * 2) return `koalas wins ${avgKoalas} vs ${avgDo
 else return `its a tie ${avgDolfins} vs ${avgKoalas}`;
 }
 
-console.log(checkWinner(averageDolfins, averageKoalas))
+console.log(checkWinner(averageDolfins, averageKoalas)) */
+
+/* const friends = [ 'miri', 'lisa', 'sara']
+
+console.log(friends.filter(checkname))
+
+function checkname(friend) {
+    return friend === 'lisa'
+}
+ */
+
+const precentageOfWorld3 = population => (population / 7900) * 100
+
+const populations = [ 10, 0.36, 83, 67]
+console.log(populations.length === 4 ? true : false)
+
+const percentages = [precentageOfWorld3(populations[0]), precentageOfWorld3(populations[1]), precentageOfWorld3(populations[2]),precentageOfWorld3(populations[3])]
+
+console.log(percentages)
+
+
+const neighbours = ['norway', 'finland', 'denmark']
+neighbours.push('utopia')
+neighbours.pop()
+console.log(neighbours)
+if(!neighbours.includes('germany'))console.log('probly not a central european country')
+
+console.log(neighbours.indexOf('finland'))
+neighbours[1] = 'finland, the best country in the world'
+console.log(neighbours)
