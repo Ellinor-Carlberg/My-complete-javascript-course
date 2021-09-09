@@ -314,4 +314,4 @@ const john = {
     }
 }
 
-console.log(`${mark.fullName} BMI ${mark.calcBMI()} is ${mark.calcBMI() > john.calcBMI() ? 'higher' : 'lower'} then ${john.fullName} BMI ${john.calcBMI()}`, john, mark )
+console.log(`${mark.fullName} BMI ${mark.calcBMI()} is ${mark.calcBMI() > john.calcBMI() ? 'higher' : 'lower'} then ${john.fullName} BMI ${john.calcBMI()}`, john, mark ) 
