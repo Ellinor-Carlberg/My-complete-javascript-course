@@ -246,3 +246,72 @@ const tips = [ calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
 const total = [tips[0]+bills[0], tips[1]+bills[1], tips[2]+bills[2]]
 console.log(bills, tips, total)
  */
+
+/* 
+const myCat = {
+    firstName: 'miri',
+    colors: [ 'black', 'white', 'brown'],
+    sound: function(mood) {
+        if(mood==='angy')return `${this.firstName} is spitting`;
+        else if(mood==='cuddly') return `${this.firstName} is sounding: prrrrrrr`;
+        else return `${this.firstName} is saying waao waaooo`
+    }
+    
+}
+myCat.lastName = 'sirisdotter'
+
+console.log(myCat.sound('happy'), myCat) 
+
+
+const animals = [
+    { species: 'cow', firstName: 'Rosa'},
+    { species: 'dog', firstName: 'Buster'},
+    { species: 'cat', firstName: 'Kurre'},
+    { species: 'bird', firstName: 'Polly'},
+]
+
+console.log(animals)
+
+const myCountry = {
+    country: 'sverige',
+    capital: 'stockholm',
+    language: 'svenska',
+    population: 10,
+    neighbours: [ 'finland', 'danmark', 'norge'],
+    describe: function(){
+        return `${this.country} har ${this.population} miljoner människor och dom pratar ${this.language}. Det finns ${this.neighbours.length} grannländer och huvudstaden är ${this.capital} `
+    },
+    checkIsland: function() {
+        return this.neighbours.length > 0 ? this.isIsland = false : this.isIsland = true;
+    }
+}
+
+myCountry.population = myCountry.population +2;
+myCountry['population'] = myCountry['population'] -2;
+console.log(`${myCountry.country} har ${myCountry.population} miljoner människor och dom pratar ${myCountry.language}. Det finns ${myCountry.neighbours.length} grannländer och huvudstaden är ${myCountry.capital} `)
+
+console.log(myCountry.describe()) 
+console.log(myCountry['population']) 
+console.log(myCountry.checkIsland(), myCountry)
+
+ */
+
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function() {
+return this.bmi = this.mass / (this.height * this.height);
+    }
+}
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function() {
+       return this.bmi = this.mass / (this.height * this.height);
+    }
+}
+
+console.log(`${mark.fullName} BMI ${mark.calcBMI()} is ${mark.calcBMI() > john.calcBMI() ? 'higher' : 'lower'} then ${john.fullName} BMI ${john.calcBMI()}`, john, mark )
