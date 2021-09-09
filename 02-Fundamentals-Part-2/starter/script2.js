@@ -194,7 +194,7 @@ function checkname(friend) {
 }
  */
 
-const precentageOfWorld3 = population => (population / 7900) * 100
+/* const precentageOfWorld3 = population => (population / 7900) * 100
 
 const populations = [ 10, 0.36, 83, 67]
 console.log(populations.length === 4 ? true : false)
@@ -212,4 +212,37 @@ if(!neighbours.includes('germany'))console.log('probly not a central european co
 
 console.log(neighbours.indexOf('finland'))
 neighbours[1] = 'finland, the best country in the world'
-console.log(neighbours)
+console.log(neighbours) */
+
+
+
+/* 
+
+const mirisLeksaker = [ 'vit pudel', 'domherre', 'liten vit mus', 'spö', 'bollbana', 'fiskmås', 'ekorre', 'folieboll', 'boll', 'garnnysta', 'snöre', 'laserpekare']
+
+mirisLeksaker[2] = 'många små möss'
+
+console.log(mirisLeksaker, mirisLeksaker[mirisLeksaker.length -1])
+
+console.log(mirisLeksaker.pop(), mirisLeksaker)
+
+mirisLeksaker.push('laserpekare')
+console.log(mirisLeksaker)
+
+
+function calcTip(billValue) {
+    if(billValue >= 50 && billValue <= 300)
+return billValue * .15;
+else return billValue * .20;
+}
+
+
+console.log(calcTip(100))
+
+
+
+const bills = [ 125, 555, 44 ]
+const tips = [ calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
+const total = [tips[0]+bills[0], tips[1]+bills[1], tips[2]+bills[2]]
+console.log(bills, tips, total)
+ */
