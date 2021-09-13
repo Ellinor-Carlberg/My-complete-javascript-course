@@ -295,7 +295,7 @@ console.log(myCountry['population'])
 console.log(myCountry.checkIsland(), myCountry)
 
  */
-
+/* 
 const mark = {
     fullName: 'Mark Miller',
     mass: 78,
@@ -314,4 +314,39 @@ const john = {
     }
 }
 
-console.log(`${mark.fullName} BMI ${mark.calcBMI()} is ${mark.calcBMI() > john.calcBMI() ? 'higher' : 'lower'} then ${john.fullName} BMI ${john.calcBMI()}`, john, mark ) 
+console.log(`${mark.fullName} BMI ${mark.calcBMI()} is ${mark.calcBMI() > john.calcBMI() ? 'higher' : 'lower'} then ${john.fullName} BMI ${john.calcBMI()}`, john, mark )  */
+
+/* const myObject = {
+    cat: 'miri',
+    phone: 'iphone',
+    myName: 'ellinor',
+    message(miriIs) {
+        this.miriIs = miriIs
+        return `hej ${this.cat} ${this.miriIs}`;
+    }
+}
+
+myObject.phone = 'iphone 6s';
+myObject['pho' + 'ne'] = 'iphone';
+console.log(myObject.message('gullunge'), myObject.phone)
+
+myObject.message = function() {
+    return 'hejhej'
+}
+
+console.log(myObject.message()) */
+
+for(let rep = 1; rep <= 10; rep++){
+    console.log(rep)
+}
+
+const friends = [ 'miri', 'lisa', 'sara', 'mirjam', 'lotten', 'sofia', 'maria', 'lisen', 'sarah', 'nina', 'parisa', 'klara']
+
+const friendsAndTypes = []
+const types = [] 
+for(let rep = 0; rep <= friends.length -1; rep++){
+    friendsAndTypes.push(friends[rep]+ typeof friends[rep])
+    types[rep] = typeof friends[rep]
+    console.log(friends[rep], friendsAndTypes[rep], types[rep])
+}
+console.log(types)
