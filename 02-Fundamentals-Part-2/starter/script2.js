@@ -335,7 +335,7 @@ myObject.message = function() {
 }
 
 console.log(myObject.message()) */
-
+/* 
 for(let rep = 1; rep <= 10; rep++){
     console.log(rep)
 }
@@ -350,3 +350,64 @@ for(let rep = 0; rep <= friends.length -1; rep++){
     console.log(friends[rep], friendsAndTypes[rep], types[rep])
 }
 console.log(types)
+ */
+const myArray = [ 
+    'myString',
+    8,
+    true,
+    'my second string',
+    [ 'this', 'is', 'my', 'array'],
+    {
+        myName: 'Ellinor',
+        age: 32,
+        hasDriverLicence: true
+    },
+    'my last string'
+]
+
+
+const newArray = []
+
+for(let i = 0; i < myArray.length; i++) {
+    if(typeof myArray[i] !== 'string') continue;
+    newArray.push(typeof myArray[i]) 
+    console.log(myArray[i], newArray)
+    
+}
+
+for(let i = myArray.length; i >= 1; i--) {
+    console.log(i)
+}
+
+for(let i = 1; i <= 3; i++) {
+    console.log('round', i)
+    for(let rep = 1; rep <= 5; rep++) {
+        console.log('rep', rep)
+    } 
+} 
+
+for(let i = 1; i <= 50; i++) {
+    console.log('voter number', i)
+}
+
+const populations = [ 10, 0.36, 83, 67]
+const percentages2 = []
+
+for(let i = 0; i < populations.length; i++) {
+    percentages2.push((populations[i] / 7900) * 100)
+}
+
+console.log(percentages2)
+
+const listOfNeighbours = [
+    ['canada', 'mexico'], 
+    ['spain'], 
+    ['norway', 'sweden', 'russia']
+]
+
+for(let i = 0; i < listOfNeighbours.length; i++) {
+   /*  console.log(listOfNeighbours[i]) */
+    for(let x = 0; x <listOfNeighbours[i].length; x++) {
+        console.log(`Neighbour: ${listOfNeighbours[i][x]}`)
+    }
+}
