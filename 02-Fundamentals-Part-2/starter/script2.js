@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /* 
 function logger() {
@@ -168,7 +168,6 @@ fnameA('tjopp')
 
  */
 
-
 /* const calcAverage = (s1, s2, s3) => (s1 + s2 + s3) / 3
 
 
@@ -213,8 +212,6 @@ if(!neighbours.includes('germany'))console.log('probly not a central european co
 console.log(neighbours.indexOf('finland'))
 neighbours[1] = 'finland, the best country in the world'
 console.log(neighbours) */
-
-
 
 /* 
 
@@ -351,6 +348,8 @@ for(let rep = 0; rep <= friends.length -1; rep++){
 }
 console.log(types)
  */
+
+/* 
 const myArray = [ 
     'myString',
     8,
@@ -406,8 +405,64 @@ const listOfNeighbours = [
 ]
 
 for(let i = 0; i < listOfNeighbours.length; i++) {
-   /*  console.log(listOfNeighbours[i]) */
+   //console.log(listOfNeighbours[i]) 
     for(let x = 0; x <listOfNeighbours[i].length; x++) {
         console.log(`Neighbour: ${listOfNeighbours[i][x]}`)
     }
+} 
+ 
+let rep = 1;
+
+while(rep <= 10){
+    console.log(`rep ${rep}`)
+    rep++
 }
+*/
+/* 
+let randomNumber = Math.trunc(Math.random() * 10)
+console.log(randomNumber)
+
+
+while(randomNumber <= 6) {
+    console.log(`nine or less, you got ${randomNumber}`)
+    randomNumber = Math.trunc(Math.random() * 10)
+    if( randomNumber > 6)console.log(`You got more then 6, you got ${randomNumber}`)
+}
+
+
+const populations = [ 10, 0.36, 83, 67]
+const percentages2 = []
+
+let i = 0;
+while(i < populations.length){
+    percentages2.push(((populations[i]) / 7900) * 100)
+    i++
+}
+
+console.log(percentages2) */
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+const calcTip = (bill) => (bill > 50 && bill < 300 ? bill * 0.15 : bill * 0.2);
+
+for (let i = 0; i < bills.length; i++) {
+  tips.push(calcTip(bills[i]));
+  totals.push(tips[i] + bills[i]);
+}
+
+console.log(bills, tips, totals);
+
+const calcAverage1 = function (arr) {
+  let total = 0;
+  let average = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total = total + arr[i];
+  }
+  average = total / arr.length;
+  return average;
+};
+
+console.log(calcAverage1([2, 3, 7]));
+console.log(calcAverage1(totals));
