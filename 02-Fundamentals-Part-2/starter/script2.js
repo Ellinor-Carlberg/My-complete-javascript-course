@@ -440,7 +440,7 @@ while(i < populations.length){
 }
 
 console.log(percentages2) */
-
+/* 
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
 const totals = [];
@@ -466,3 +466,38 @@ const calcAverage1 = function (arr) {
 
 console.log(calcAverage1([2, 3, 7]));
 console.log(calcAverage1(totals));
+ */
+
+/* 
+const animals = [
+    { species: 'cow', firstName: 'Rosa'},
+    { species: 'dog', firstName: 'Buster'},
+    { species: 'cat', firstName: 'Kurre'},
+    { species: 'bird', firstName: 'Polly'},
+    { species: 'cow', firstName: 'Rosa'},
+    { species: 'dog', firstName: 'Buster'},
+    { species: 'cat', firstName: 'Kurre'},
+    { species: 'bird', firstName: 'Polly'},
+    { species: 'cow', firstName: 'Rosa'},
+    { species: 'dog', firstName: 'Buster'},
+    { species: 'cat', firstName: 'Kurre'},
+    { species: 'bird', firstName: 'Polly'}
+]
+
+const animalNames = []
+
+for(let i = 0; i < animals.length; i++ ) {
+    animalNames.push(animals[i].firstName)
+   
+}
+
+const animalNamedRosa = animalNames.filter(function(animalName) {
+    return animalName === 'Rosa'
+})
+
+console.log(animalNames, animalNamedRosa)
+
+
+for(let i = 0; i < animalNamedRosa.length; i++) {
+    console.log(animalNamedRosa[i])
+} */
