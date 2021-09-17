@@ -94,4 +94,63 @@ const calcTempAmplitude2Days = function (temperatureArray1, temperatureArray2) {
   return tempAplitude;
 };
 
+/*
 console.log('calcTempAmplitude', calcTempAmplitude2Days(temperatures));
+
+const array10 = ['2', 'error', 10, 'array10'];
+const array20 = ['20', 'no error', 20, 'array20'];
+
+console.log(array20.push(...array10), array20);
+
+
+const array30 = array10.concat(array20);
+const array40 = [2, 5, 9, 10, 100, 2, 1];
+console.log('array30', array30);
+
+const min = Math.min(...array40);
+console.log(min);
+
+for (let i = 0; i < array10.length; i++) {
+  console.log(typeof array10[i] == 'number' ? array10[i] : 'no');
+}
+
+const array50 = [2, 5, 9, 'halloj', 10, 100, 2, 1, 'lol'];
+const array50Numbers = array50.filter(number => typeof number == 'number');
+console.log('array50Numbers', array50Numbers);
+
+const secondF = function (message) {
+  console.log('secondF', message);
+};
+
+function firstF(msg) {
+  secondF(msg);
+
+  console.log('firstF');
+}
+
+firstF('hej');
+
+const thirdF = () => console.log('secondF');
+
+thirdF();
+
+const array8 = [3, 'hej', 'miri', false];
+
+array8[1] = 'halloj';
+
+array8.push(' = ');
+
+console.log(array8.length);
+  */
+
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celcius',
+    value: prompt('Degrees celcius:'),
+  };
+  console.log(typeof measurement.value);
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+console.log(measureKelvin());
