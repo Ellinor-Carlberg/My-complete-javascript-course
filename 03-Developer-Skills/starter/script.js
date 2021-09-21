@@ -196,3 +196,31 @@ function printForecast(forecastArray) {
 }
 
 console.log(printForecast([12, 5, -5, 0, 4]));
+/* 
+const myObject = {
+  myFirst: 'firstThing',
+  isTrue: true,
+  myNumber: 8,
+  myArray: [3, 2, 1, 0],
+  myMethod: function (msg) {
+    this.myMessage = msg;
+    return this.isTrue;
+  },
+  mySecondMethod() {
+    return this.myFirst;
+  },
+};
+
+myObject.newMessage = 'hello';
+console.log(
+  myObject.myMethod('hej'),
+  myObject.mySecondMethod(),
+  myObject.myMessage,
+  myObject.newMessage,
+  myObject['myArray']
+);
+
+console.error('error');
+console.warn('warning');
+console.table(myObject);
+ */
