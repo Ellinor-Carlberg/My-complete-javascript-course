@@ -13,29 +13,40 @@ const btnHoldScore = document.querySelector('.btn--hold');
 
 let activePlayer;
 let gameOver = true;
+
 const changeActivePlayer = function () {
   if (player0.classList.contains('player--active')) {
     player0.classList.remove('player--active');
-
     activePlayer = 1;
     player1.classList.add('player--active');
   } else {
     player1.classList.remove('player--active');
-
     activePlayer = 0;
     player0.classList.add('player--active');
   }
 };
 
 const checkWinner = function () {
-  if (Number(current0.textContent) >= 100) {
-    player0.classList.remove('player--active');
+  if (Number(score0.textContent) >= 100) {
     player0.classList.add('player--winner');
     gameOver = true;
-  } else if (Number(current1.textContent) >= 100) {
+  } else if (Number(score1.textContent) >= 100) {
     player1.classList.remove('player--active');
     player1.classList.add('player--winner');
     gameOver = true;
+  }
+};
+
+const currentScore = function (rolledDice) {
+  if (rolledDice === 1) {
+    clearCurrentScore();
+    changeActivePlayer();
+  } else {
+    if (!activePlayer) {
+      current0.textContent = Number(current0.textContent) + rolledDice;
+    } else {
+      current1.textContent = Number(current1.textContent) + rolledDice;
+    }
   }
 };
 
@@ -46,19 +57,24 @@ const clearCurrentScore = function () {
     current1.textContent = 0;
   }
 };
+
 btnNewGame.addEventListener('click', function () {
+  if (player0.classList.contains('player--winner')) {
+    player0.classList.remove('player--winner');
+  } else if (player1.classList.contains('player--winner')) {
+    player1.classList.remove('player--winner');
+  }
   gameOver = false;
+
   score0.textContent = 0;
   score1.textContent = 0;
   current0.textContent = 0;
   current1.textContent = 0;
   activePlayer = 0;
-  console.log(activePlayer);
 });
 
 btnRollDice.addEventListener('click', function () {
-  if (gameOver) return;
-  else {
+  if (!gameOver) {
     const newDiceNumber = Math.floor(Math.random() * 6) + 1;
     console.log(newDiceNumber);
     dice.src = `dice-${newDiceNumber}.png`;
@@ -66,39 +82,17 @@ btnRollDice.addEventListener('click', function () {
   }
 });
 
-const currentScore = function (rolledDice) {
-  if (!activePlayer) {
-    if (rolledDice === 1) {
-      clearCurrentScore();
-      changeActivePlayer();
-    } else {
-      current0.textContent = Number(current0.textContent) + rolledDice;
-    }
-  } else {
-    if (rolledDice === 1) {
-      clearCurrentScore();
-      changeActivePlayer();
-    } else {
-      current1.textContent = Number(current1.textContent) + rolledDice;
-    }
-  }
-};
-
 btnHoldScore.addEventListener('click', function () {
-  if (gameOver) return;
-  else {
+  if (!gameOver) {
     if (!activePlayer) {
       score0.textContent =
         Number(score0.textContent) + Number(current0.textContent);
-      clearCurrentScore();
-      changeActivePlayer();
-      checkWinner();
     } else {
       score1.textContent =
         Number(score1.textContent) + Number(current1.textContent);
-      clearCurrentScore();
-      changeActivePlayer();
-      checkWinner();
     }
+    clearCurrentScore();
+    changeActivePlayer();
+    checkWinner();
   }
 });
