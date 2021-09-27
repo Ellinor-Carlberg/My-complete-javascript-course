@@ -32,9 +32,11 @@ const changeActivePlayer = function () {
 const checkWinner = function () {
   if (Number(score0.textContent) >= 100) {
     player0El.classList.add('player--winner');
+    dice.classList.add('hidden');
     gameOver = true;
   } else if (Number(score1.textContent) >= 100) {
     player1El.classList.add('player--winner');
+    dice.classList.add('hidden');
     gameOver = true;
   } else {
     changeActivePlayer();
