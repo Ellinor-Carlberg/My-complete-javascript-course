@@ -1,98 +1,99 @@
 'use strict';
 
-const player0 = document.querySelector('.player--0');
-const player1 = document.querySelector('.player--1');
+const player0El = document.querySelector('.player--0');
+const player1El = document.querySelector('.player--1');
 const score0 = document.querySelector('#score--0');
 const score1 = document.querySelector('#score--1');
-const current0 = document.querySelector('#current--0');
-const current1 = document.querySelector('#current--1');
+const current0El = document.querySelector('#current--0');
+const current1El = document.querySelector('#current--1');
 const dice = document.querySelector('.dice');
 const btnNewGame = document.querySelector('.btn--new');
 const btnRollDice = document.querySelector('.btn--roll');
 const btnHoldScore = document.querySelector('.btn--hold');
 
-let activePlayer;
-let gameOver = true;
+let gameOver = false;
+let activePlayer = 0;
+let currentScore = 0;
 
 const changeActivePlayer = function () {
-  if (player0.classList.contains('player--active')) {
-    player0.classList.remove('player--active');
+  if (!activePlayer) {
+    player0El.classList.remove('player--active');
+    current0El.textContent = 0;
     activePlayer = 1;
-    player1.classList.add('player--active');
+    player1El.classList.add('player--active');
   } else {
-    player1.classList.remove('player--active');
+    player1El.classList.remove('player--active');
+    current1El.textContent = 0;
     activePlayer = 0;
-    player0.classList.add('player--active');
+    player0El.classList.add('player--active');
   }
 };
 
 const checkWinner = function () {
   if (Number(score0.textContent) >= 100) {
-    player0.classList.add('player--winner');
+    player0El.classList.add('player--winner');
     gameOver = true;
   } else if (Number(score1.textContent) >= 100) {
-    player1.classList.remove('player--active');
-    player1.classList.add('player--winner');
+    player1El.classList.add('player--winner');
     gameOver = true;
+  } else {
+    changeActivePlayer();
   }
 };
 
-const currentScore = function (rolledDice) {
+const updateCurrentScore = function (rolledDice) {
   if (rolledDice === 1) {
-    clearCurrentScore();
+    currentScore = 0;
     changeActivePlayer();
   } else {
+    currentScore = rolledDice + currentScore;
     if (!activePlayer) {
-      current0.textContent = Number(current0.textContent) + rolledDice;
+      current0El.textContent = currentScore;
     } else {
-      current1.textContent = Number(current1.textContent) + rolledDice;
+      current1El.textContent = currentScore;
     }
   }
 };
 
-const clearCurrentScore = function () {
-  if (!activePlayer) {
-    current0.textContent = 0;
-  } else {
-    current1.textContent = 0;
-  }
-};
-
 btnNewGame.addEventListener('click', function () {
-  if (player0.classList.contains('player--winner')) {
-    player0.classList.remove('player--winner');
-  } else if (player1.classList.contains('player--winner')) {
-    player1.classList.remove('player--winner');
+  if (gameOver) {
+    if (!activePlayer) player0El.classList.remove('player--winner');
+    else {
+      player1El.classList.remove('player--active');
+      player1El.classList.remove('player--winner');
+      player0El.classList.add('player--active');
+    }
+  } else {
+    if (activePlayer) player1El.classList.remove('player--active');
+    player0El.classList.add('player--active');
   }
   gameOver = false;
 
+  dice.classList.add('hidden');
   score0.textContent = 0;
   score1.textContent = 0;
-  current0.textContent = 0;
-  current1.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
   activePlayer = 0;
 });
 
 btnRollDice.addEventListener('click', function () {
   if (!gameOver) {
     const newDiceNumber = Math.floor(Math.random() * 6) + 1;
-    console.log(newDiceNumber);
     dice.src = `dice-${newDiceNumber}.png`;
-    currentScore(newDiceNumber);
+    if (dice.classList.contains('hidden')) dice.classList.remove('hidden');
+    updateCurrentScore(newDiceNumber);
   }
 });
 
 btnHoldScore.addEventListener('click', function () {
   if (!gameOver) {
     if (!activePlayer) {
-      score0.textContent =
-        Number(score0.textContent) + Number(current0.textContent);
+      score0.textContent = Number(score0.textContent) + currentScore;
     } else {
-      score1.textContent =
-        Number(score1.textContent) + Number(current1.textContent);
+      score1.textContent = Number(score1.textContent) + currentScore;
     }
-    clearCurrentScore();
-    changeActivePlayer();
+    currentScore = 0;
     checkWinner();
   }
 });
