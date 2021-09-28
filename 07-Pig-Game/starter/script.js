@@ -1,5 +1,6 @@
 'use strict';
 
+//Selecting elements
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
 const score0 = document.querySelector('#score--0');
@@ -11,9 +12,21 @@ const btnNewGame = document.querySelector('.btn--new');
 const btnRollDice = document.querySelector('.btn--roll');
 const btnHoldScore = document.querySelector('.btn--hold');
 
-let gameOver = false;
-let activePlayer = 0;
-let currentScore = 0;
+//Starting conditions
+let scores, currentScore, activePlayer, gameOver;
+
+const init = function () {
+  gameOver = false;
+  activePlayer = 0;
+  currentScore = 0;
+  scores = [0, 0];
+  dice.classList.add('hidden');
+  score0.textContent = scores[0];
+  score1.textContent = scores[1];
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+};
+init();
 
 const changeActivePlayer = function () {
   if (!activePlayer) {
@@ -30,14 +43,11 @@ const changeActivePlayer = function () {
 };
 
 const checkWinner = function () {
-  if (Number(score0.textContent) >= 100) {
-    player0El.classList.add('player--winner');
+  if (scores[0] >= 21 || scores[1] >= 21) {
     dice.classList.add('hidden');
     gameOver = true;
-  } else if (Number(score1.textContent) >= 100) {
-    player1El.classList.add('player--winner');
-    dice.classList.add('hidden');
-    gameOver = true;
+    if (!activePlayer) player0El.classList.add('player--winner');
+    else player1El.classList.add('player--winner');
   } else {
     changeActivePlayer();
   }
@@ -69,14 +79,7 @@ btnNewGame.addEventListener('click', function () {
     if (activePlayer) player1El.classList.remove('player--active');
     player0El.classList.add('player--active');
   }
-  gameOver = false;
-
-  dice.classList.add('hidden');
-  score0.textContent = 0;
-  score1.textContent = 0;
-  current0El.textContent = 0;
-  current1El.textContent = 0;
-  activePlayer = 0;
+  init();
 });
 
 btnRollDice.addEventListener('click', function () {
@@ -92,8 +95,10 @@ btnHoldScore.addEventListener('click', function () {
   if (!gameOver) {
     if (!activePlayer) {
       score0.textContent = Number(score0.textContent) + currentScore;
+      scores[0] = Number(score0.textContent);
     } else {
       score1.textContent = Number(score1.textContent) + currentScore;
+      scores[1] = Number(score1.textContent);
     }
     currentScore = 0;
     checkWinner();
