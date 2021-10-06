@@ -110,7 +110,51 @@ const me = {
   age: 33,
 };
 
-const friend = me;
+/* const friend = me;
 friend.firstName = 'lisa';
 
 console.log(me, friend);
+
+const clickAction = function () {
+  this.textContent = 'hej';
+};
+
+const allh1 = document.querySelectorAll('h1');
+for (let i = 0; i < allh1.length; i++) {
+  allh1[i].addEventListener('click', clickAction);
+}
+
+console.log(document.querySelectorAll('h1'));
+ */
+
+//PRIMITIVE types
+let lastName = 'william';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(oldLastName, lastName);
+
+//REFERENCE types
+const jessica = { firstName: 'jessica', lastName: 'william' };
+/* const marriedJessica = jessica;
+marriedJessica.lastName = 'davis';
+console.log(marriedJessica, jessica); */
+
+//COPY object/reference types
+//only shallow copy
+const jessicaCopy = Object.assign({}, jessica);
+jessicaCopy.lastName = 'davis';
+console.log(jessica, jessicaCopy);
+
+//prove of shallow copy
+
+const maria = {
+  firstName: 'maria',
+  lastName: 'carlberg',
+  livingWith: ['carl', 'ebba', 'sanna'],
+};
+
+const mariaCopy = Object.assign({}, maria);
+console.log(mariaCopy, maria);
+
+maria.livingWith.splice([1]);
+console.log(mariaCopy, maria);
